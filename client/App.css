@@ -1,0 +1,206 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+::placeholder{
+  color: black;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cover{
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  /*background-color: #ffffff22;*/
+  height: 450px;
+  padding: 50px;
+  margin: 200px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  border-radius: 60px;
+  /*padding-bottom: 0px;*/
+  /*box-shadow: 7px 6px 6px #ffffff22;*/
+  /*border: solid black 1px;*/
+  /* display: block; */
+
+}
+.cover1{
+  flex-wrap: wrap;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  border: solid blue 1px;
+  margin: 20px;
+  border-radius: 60px;
+ 
+
+}
+.content{
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  height: 370px;
+  /* padding: 50px; */
+  margin: 80px;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: solid #88888888 1px;
+  box-shadow: 7px 6px 6px #88888888;
+
+}
+
+.content1{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-color: rgb(82, 82, 243);
+  font-style: italic;
+  font-size: .5rem;
+  font-family: monospace;
+  cursor: pointer;
+  color: white;
+  height:  70px;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 50px;
+  border-radius: 50px;
+  border: solid #3f169e88 1px;
+  box-shadow: 7px 6px 6px rgb(1, 1, 2);
+
+}
+
+.top-label{
+  /* padding-top: 0px; */
+  color: black;
+  font-size: 1.2rem;
+  font-family: cursive;
+  letter-spacing: 2px;
+ }
+ .top-label1{
+  /* padding-top: 0px; */
+  color: black;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: cursive;
+  letter-spacing: 2px;
+ }
+
+.input{
+  /* padding-top: 5px; */
+  display: block;
+}
+.input-top{
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  
+  
+}
+
+.input-bottom{
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+ 
+}
+
+.login{
+  margin-top: 20px;
+  border-radius: 5px;
+  padding:7px;
+  background-color: blue;
+  color: white;
+  font-family: monospace;
+  cursor: pointer;
+}
+.add{
+  margin: 30px;
+  margin-top: 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding:7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: rgb(20, 145, 20);
+  color: white;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+:hover.login{
+background-color: white;
+color: blue;
+}
+
+.error{
+  padding: 0px;
+  margin: 0px;
+  color: red;
+  font-family: monospace;
+  font-size: 0.8rem;
+  display: inline-flex;
+}
+
+.addLink{
+  margin: 15px;
+  margin-bottom:20px;
+  justify-content: center;
+  text-align: center;
+  border-radius: 30px;
+  color: blue;
+  border: solid black 1px;
+  box-shadow: 4px 5px 3px black;
+  padding:20px;
+  cursor: pointer;
+}
+.formDetails{
+  border-radius: 20px;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  border: solid blue 2px;
+}
+.formInput{
+  width: 400px;
+  border: solid green 2px;
+  border-left:solid white 1px;
+  border-right:solid white 1px;
+  border-top:solid white 1px;
+  padding:10px;
+}
