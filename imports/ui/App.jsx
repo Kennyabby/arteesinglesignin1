@@ -20,17 +20,22 @@ export class App extends Component{
   constructor(){
     super();
     this.state={
-      view:<LoginPage loggedin={this.goToLogin}/>
+      view:<LoginPage loggedin={this.goToLink} loggedout={this.loggout}/>
     }
   }
-  
-  goToLogin=(linkPage)=>{
+  loggout=(e)=>{
+    console.log("now reloading page")
+    window.location.reload();
+  }
+
+  goToLink=(linkPage)=>{
     this.setState({
       view:linkPage
       
     })
     
   }
+  
 
   render(){
     return(

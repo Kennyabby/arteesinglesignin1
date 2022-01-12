@@ -56,14 +56,19 @@ var password="";
         })
       }
     }
+    gotoMain=(e)=>{
+      console.log("going to main");
+      this.props.loggeout;
+    }
     login  = (event)=>{
   
         if (username===this.state.username && password===this.state.password){
           this.setState({
             err: "Please wait.."
           })
+          var linkPage = <LinkPage loggedout={this.props.loggedout}/>;
           event.target.innerHTML="Signin...";
-          this.props.loggedin(<LinkPage/>);
+          this.props.loggedin(linkPage);
     
         }else if(username==="" && password===""){
           this.setState({
