@@ -1,4 +1,7 @@
 body {
-  padding: 10px;
+  margin:auto;
+  padding:auto 0px;
+  /* padding: 10px; */
   font-family: sans-serif;
+  background-color: white;
 }

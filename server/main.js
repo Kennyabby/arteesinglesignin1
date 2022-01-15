@@ -2,13 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { AppsheetLink } from '/imports/api/links';
 import { LoginDetails } from '/imports/api/userLogin';
 
-// AppsheetLink.find().fetch();
-// LoginDetails.find().fetch();
-// const LoginDetails = new Mongo.Collection("LoginDetails");
-// console.log("hello world");
 
 if(Meteor.isServer) {
-    
+  // sessionStorage.removeItem("username");
     Meteor.startup(function () {
       // console.log(LoginDetails.find().fetch());
       //  AppsheetLink.insert({
@@ -32,12 +28,24 @@ if(Meteor.isServer) {
       //   createdAt:new Date()
       //  })
       // LoginDetails.insert({
-      //   username:"admin1234",
-      //   password:"art@@9091"
+      //   username:"arteegroup",
+      //   password:"10artee01",
+      //   status:"User",
+      //   active:"off",
+      //   page:"loginPage"
       //  })
-      //  console.log(LoginDetails.find().fetch());
+      //  LoginDetails.insert({
+      //   username:"arteeadmin",
+      //   password:"admin114",
+      //   status:"Admin",
+      //   active:"off",
+      //   page:"loginPage"
+      //  })
+       console.log(LoginDetails.find().fetch());
     //   Myvars = new Mongo.Collection("myvars");
-      // AppsheetLink.remove({title:"Google"});
+      // LoginDetails.remove({});
+      // console.log(AppsheetLink.find().fetch());
+      
       LoginDetails.allow({
         insert: function () {
           return true;

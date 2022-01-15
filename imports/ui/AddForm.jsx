@@ -5,8 +5,6 @@ import { Tracker } from 'meteor/tracker'
 
 var title="";
 var url="";
-var appName="";
-var appUrl="";
 
 export class AddForm extends Component{
     constructor(props){
@@ -14,7 +12,9 @@ export class AddForm extends Component{
         this.state={
             isViewAdd:"none"
         }
+        
     }
+    
     getAppName=(e)=>{
         title=e.target.value;
         console.log("title: ",title.length,url.length)
@@ -56,6 +56,7 @@ export class AddForm extends Component{
     appName = <input className='formInput' type="text" placeholder='Enter Appsheet Name' onChange={this.getAppName}/>;
     appUrl = <input className='formInput' type="text" placeholder='Enter Appsheet Link' onChange={this.getAppUrl}/>;
     updateLinks=()=>{
+        // console.log(this.appName.target);
         var sub = Meteor.subscribe('AppsheetLink');
         var count=0;
         Tracker.autorun(()=>{
@@ -83,16 +84,15 @@ export class AddForm extends Component{
     }
     
     render(){
+        const changeFormview = this.props.show? "display-view":"display-none";
         return(
-            <div style={{justifyContent: "center", textAlign:"center"}}>
-                <div className='formDetails'>
-                    <p><b>Name:</b> {this.appName}</p>
-                    <p><b>Url:</b> {this.appUrl}</p>
+            <div className={changeFormview} style={{justifyContent: "center", textAlign:"center"}}>
+                <div className="formDetails">
+                    <p>Name: {this.appName}</p>
+                    <p>Url: {this.appUrl}</p>
                     <button className='add' style={{display:this.state.isViewAdd}} title="Add Link" onClick={this.updateLinks}>Add Link</button>
                     <button className='ccl' title="Cancel" onClick={this.cancleUpdateLinks}>Cancel</button>
                 </div>
-
-                
             </div>
         );
     }

@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import { AppsheetLink } from '/imports/api/links';
+import { LoginDetails } from '/imports/api/userLogin';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import {AddForm} from './AddForm';
 
 
 var linkList="";
+var countt=0;
 
 function gotoLink(e){
     var appsheetLink = e.target.getAttribute("url");
@@ -38,41 +40,40 @@ export class LinkPage extends Component{
         super(props);
         this.state={
             link:[],
-            addView:"",
             displayStatus:"inline-flex",
-            search:""
+            search:"",
+            show:false,
+            cancle:"none"
         }
+        this.showAddForm = this.showAddForm.bind(this);
+        this.hideAddForm = this.hideAddForm.bind(this);
     }
 
-    removedForm=(e)=>{
-        
-        this.setState({
-            displayStatus:"inline-flex",
-            addView:""
-        })
-        
-    }
-    addLink=(e)=>{
-        // console.log(e.currentTarget)
-        this.setState({
+    showAddForm = () => {
+        this.setState({ 
+            show: true, 
             displayStatus:"none"
-        })
+        });
+    };
 
-        this.setState({
-            addView:<AddForm updates={this.removedForm}/>
-        })
-    }
+    hideAddForm = () => {
+        this.setState({ 
+            show: false,
+            displayStatus:"inline-flex" 
+        });
+    };
+    
     gotoLogin=()=>{
-        // console.log("going to login page");
-        // this.props.loggedout;
-        location.reload();
+        sessionStorage.removeItem("username");
+        this.props.loggedout();
+        sessionStorage.setItem("page","loginPage")
     }
+
     changeDetect=(e)=>{
         var subs = Meteor.subscribe('AppsheetLink');
         this.setState({search: e.target.value.toLowerCase()});
         Tracker.autorun(()=>{
             if (subs.ready()){
-                var list = AppsheetLink.find().fetch();
                 var newLinkList=linkList.filter(list=>{return (list.title.toLowerCase().includes(this.state.search))});
                 console.log(newLinkList);
                 this.setState({
@@ -83,40 +84,69 @@ export class LinkPage extends Component{
         })
     }
     
+    checkUserStatus=()=>{
+        var subt = Meteor.subscribe('LoginDetails');
+        Tracker.autorun(()=>{
+            if (subt.ready()){
+                countt++;
+                if (countt===1){
+                    // console.log(window.sessionStorage.getItem("username"));
+                    // var storage = String(window.sessionStorage.getItem("username"));
+                    
+                    const currentuser=LoginDetails.find().fetch().filter(user=>{
+                        
+                        if (user._id===this.props.currentUser._id){
+                            
+                            return user;
+                        }
+                    });
+                    if (currentuser[0].status==="Admin"){
+                        // console.log("yes")
+                        this.setState({
+                            cancle:"block"
+                        })
+                    }
+                    else{
+                        this.setState({
+                            cancle:"none"
+                        })
+                    }
+                }   
+            }
+        })
+    }
     render(){
-    
+        
+        this.checkUserStatus();
         return(
             <div>
-                <p className='logout' title="Click to Log out" onClick={this.gotoLogin}>Logout</p>
-                <div><h1 className='top-label1'>ARTEE SINGLE SIGNIN</h1></div>
-                <div className='addLinkLeft' style={{display:this.state.displayStatus}} onClick={this.addLink}>
-                    <img src="add.png" alt="add appsheet link" title="Click to add a new link" height="50px"/>    
+                <p className='logout' title="Click to Log out" onClick={this.gotoLogin}>Signout</p>
+                <div><h1 className='top-label2'>ARTEE INTRANET</h1></div>
+                <div className='addLinkRight' style={{display:this.state.displayStatus}} onClick={this.showAddForm}>
+                    <img src="add.jpg" style={{borderRadius:"100px", padding:"0px", margin:"0px"}} alt="add appsheet link" title="Click to add a new link" height="20px"/>    
                 </div>
-                <div className='addLinkRight' style={{display:this.state.displayStatus}} onClick={this.addLink}>
-                    <img src="add.png" alt="add appsheet link" title="Click to add a new link" height="50px"/>    
-                </div>
-                {this.state.addView}
                 <div className='sch'><p><input className="search" type="search" placeholder="Search for Link" onChange={this.changeDetect}/></p></div>
                 <p className='top-label1'>Choose a link</p>
                 <div style={{textAlign:"center"}}>
                     <div className='cover1'>
                         {this.state.link.map((link,id)=>{
                             var urlVal=link.url;
-                            // console.log(urlVal);
                             return(
                             <div key={id} className="content1" url={urlVal} title={link.url}>
-                                <img urll={urlVal} id={link._id} src="cancle.png" className="cancleUrl" title="remove link" src="cancle.png" alt="cancle link" onClick={cancleLink}/>
+                                <img urll={urlVal} id={link._id} style={{display:this.state.cancle}} src="cancle.png" className="cancleUrl" title="remove link" src="cancle.png" alt="cancle link" onClick={cancleLink}/>;
                                 <img url={urlVal} src="logo.png" alt="appsheet link" height="200px" onClick={gotoLink}/>
                                 <h1 key={id} url={urlVal} onClick={gotoLink}>{link.title}</h1>
                             </div>)
                         })}
                     </div>
                 </div>
+                <AddForm show={this.state.show} updates={this.hideAddForm}/>
             </div>   
         )
     }
 
     componentDidMount(){
+        sessionStorage.setItem("page","linkPage")
         var sub = Meteor.subscribe('AppsheetLink');
         Tracker.autorun(()=>{
             if (sub.ready()){
