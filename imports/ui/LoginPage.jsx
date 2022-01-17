@@ -9,7 +9,7 @@ var passValue="kldkldkdsaklklsa";
 var users=[{username:userValue, password:passValue}];
 var username="";
 var password="";
-var clickCount=0;
+var cunt=0;
 export class LoginPage extends Component{
 
   constructor(props){
@@ -53,6 +53,8 @@ export class LoginPage extends Component{
           err: "",
           currentUser:user
         })
+        
+        LoginDetails.update({_id : user._id},{$set:{active:"on"}});
         this.props.passUser(user);
         window.sessionStorage.setItem("username",username);
         event.target.innerHTML="Signin...";
@@ -137,7 +139,6 @@ export class LoginPage extends Component{
           <div className='cover'>
           <p><img src="sparLogo.png" style={{margin:"0px"}} alt="Spar Logo" width="400px"/></p>
           <div className="content" onClick={()=>{
-            clickCount++;
           }}>
               <h1 className="top-label">Signin Into Your Account</h1>
               {/* <img src="logo.png" alt="Spar Logo" width="100px"/> */}

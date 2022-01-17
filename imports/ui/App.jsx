@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {LoginPage} from './LoginPage';
 import {LinkPage} from './LinkPage';
+import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker';
+import { LoginDetails } from '/imports/api/userLogin';
 
 
 // https://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@github.com/Kennyabby/arteesinglesignin.git
@@ -13,7 +16,8 @@ import {LinkPage} from './LinkPage';
 //   password: 'art@@9091'
 // })
 // console.log(process.env("GITHUB_LINK"))
-var user=""
+var currentUser=""
+var num=0;
 
 export class App extends Component{
 
@@ -26,21 +30,24 @@ export class App extends Component{
     }
   }
   loggout=(e)=>{
+    window.sessionStorage.removeItem("username");
+    LoginDetails.update({_id : user._id},{$set:{active:"off"}});
     this.setState({
       view:<LoginPage loggedin={this.goToLink} passUser={this.getUser}/>
       
     })
+    
     window.location.reload();
   }
 
   goToLink=(e)=>{
-    // console.log(user)
-    console.log(this.state.user);
+    
+    // console.log(this.state.user);
     this.setState({
       view:<LinkPage loggedout={this.loggout} currentUser={this.state.user}/>
       
     })
-    // window.location.reload();
+    
   }
   getUser=(user)=>{
     user=user;
@@ -55,23 +62,67 @@ export class App extends Component{
     );
   }
   componentDidMount(){
-    var pageStatus = this.state.page;
+  
     var subs = Meteor.subscribe('LoginDetails');
-    if(pageStatus==="loginPage"){
+    if (sessionStorage.getItem("username")!==null){
+      Tracker.autorun(()=>{
+        
+        if (subs.ready()){
+          num++;
+          if (num===1){
+            currentUser=LoginDetails.find().fetch().filter(user=>{
+                            
+                if (user.username===sessionStorage.getItem("username")){
+                    
+                    return user;
+                }
+                
+            });
+            console.log(currentUser[0]);
+            if(currentUser[0].active==="on"){
+              console.log("yes it's on")
+              // if(this.state.user!==""){
+                
+              // }else{
+              //   this.setState({
+              //     view:<LoginPage loggedin={this.goToLink} passUser={this.getUser}/>
+                  
+              //   })
+              // }
+              this.setState({
+                view:<LinkPage loggedout={this.loggout} currentUser={this.state.user}/>
+                
+              })
+            }else{
+              this.setState({
+                view:<LoginPage loggedin={this.goToLink} passUser={this.getUser}/>
+                
+              })
+            }
+          }
+        }
+      })
+    }else{
       this.setState({
         view:<LoginPage loggedin={this.goToLink} passUser={this.getUser}/>
         
       })
     }
-    if(pageStatus==="linkPage"){
-      this.setState({
-        view:<LinkPage loggedout={this.loggout}/>
+    
+    
+    
+    // if(pageStatus==="loginPage"){
+      
+    // }
+    // if(pageStatus==="linkPage"){
+    //   this.setState({
+    //     view:<LinkPage loggedout={this.loggout}/>
         
-      })
-      this.setState({
-        page:"linkPage"
-      })
-    }
+    //   })
+    //   this.setState({
+    //     page:"linkPage"
+    //   })
+    // }
     
   }
 }

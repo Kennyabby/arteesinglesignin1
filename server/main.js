@@ -4,7 +4,7 @@ import { LoginDetails } from '/imports/api/userLogin';
 
 
 if(Meteor.isServer) {
-  // sessionStorage.removeItem("username");
+  // console.log(sessionStorage)
     Meteor.startup(function () {
       // console.log(LoginDetails.find().fetch());
       //  AppsheetLink.insert({

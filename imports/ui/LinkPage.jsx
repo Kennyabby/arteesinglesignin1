@@ -64,9 +64,8 @@ export class LinkPage extends Component{
     };
     
     gotoLogin=()=>{
-        sessionStorage.removeItem("username");
+        LoginDetails.update({_id : user._id},{$set:{active:"off"}});
         this.props.loggedout();
-        sessionStorage.setItem("page","loginPage")
     }
 
     changeDetect=(e)=>{
