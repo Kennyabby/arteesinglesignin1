@@ -72,7 +72,7 @@
   text-align: center;
   justify-content: center;
   background-color: white;
-  width: 50vw;
+  width: 500px;
   padding: 10px;
   /* margin: 80px; */
   margin-top: 0px;
@@ -321,16 +321,30 @@ color: blue;
 
 @media only screen and (max-width: 600px) {
   .cover{
-    display:inline-flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    /*background-color: #ffffff22;*/
+    margin: 10px;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    border-radius: 60px;
+    /* width:100vw; */
+    /* height:50vh; */
+    /*padding-bottom: 0px;*/
+    /*box-shadow: 7px 6px 6px #ffffff22;*/
+    /*border: solid black 1px;*/
+    display: inline-flex;
+  
   }
   .content{
     display: inline-flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    background-color: blue;
-    width: 100vw;
-    padding: 10px;
+    background-color: white;
+    width: 400px;
+    /* padding: 10px;  */
     /* margin: 80px; */
     margin-top: 10px;
     border-radius: 0px;
@@ -338,4 +352,73 @@ color: blue;
     box-shadow: 7px 6px 6px #b1acac88;
   
   }
+  .input-top{
+    display: block;
+    width: 220px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    padding: 10px;
+    
+    
+  }
+  
+  .input-bottom{
+    display: block;
+    width: 220px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    padding: 10px;
+    
+   
+  }
+  
+  .login{
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: solid red 1px;
+    padding:7px;
+    padding-left: 170px;
+    padding-right: 150px;
+    background-color: red;
+    color: white;
+    font-family: monospace;
+    cursor: pointer;
+  }
+  .formDetails{
+    position:fixed;
+    background-color: rgb(235,235,235,0.8);
+    box-shadow: 4px 5px 3px white;
+    width: 300px;
+    height: auto;
+    top:30%;
+    left:0%;
+    font-size: 1.0rem;
+    font-family: monospace;
+    font-style: italic;
+    font-weight: lighter;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    border: solid rgb(201, 201, 218) 1px;
+    padding:30px;
+  }
+  .formInput{
+    background-color: rgb(255,255,255,0);
+    width: 200px;
+    border: none;
+    border-bottom:solid blue 1.5px;
+    padding:10px;
+    outline: none;
+  }
+  .top-label2{
+  
+    color: black;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: monospace;
+    letter-spacing: 2px;
+   }
 }

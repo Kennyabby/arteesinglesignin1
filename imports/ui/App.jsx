@@ -3,7 +3,7 @@ import {LoginPage} from './LoginPage';
 import {LinkPage} from './LinkPage';
 
 
-// https://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@github.com/Kennyabby/Artee-Supreme.git
+// https://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@github.com/Kennyabby/arteesinglesignin.git
 // function insertLink({ username, password }) {
 //   LoginDetails.insert({username, password, createdAt: new Date()});
 // }
@@ -11,9 +11,8 @@ import {LinkPage} from './LinkPage';
 // insertLink({
 //   username: 'admin1234',
 //   password: 'art@@9091'
-// });
-
-
+// })
+// console.log(process.env("GITHUB_LINK"))
 var user=""
 
 export class App extends Component{
