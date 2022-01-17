@@ -6,7 +6,7 @@ import { Tracker } from 'meteor/tracker';
 import { LoginDetails } from '/imports/api/userLogin';
 
 
-// https://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@github.com/Kennyabby/arteesinglesignin.git
+// https://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@github.com/Kennyabby/arteesinglesignin.git
 // function insertLink({ username, password }) {
 //   LoginDetails.insert({username, password, createdAt: new Date()});
 // }
