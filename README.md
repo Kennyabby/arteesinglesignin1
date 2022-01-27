@@ -20,7 +20,7 @@
 	Actively running t2.micro 8GiB, Amazon Web Service (AWS), Elastic Cloud Computing (EC2) Ubuntu 20.04 Instance, with public 
 	IP 34.242.180.128.
 # Meteor Installation process:
-	# The following command were executed in the above environment.
+	The following command were executed in the above environment.
 		sudo apt update
 		sudo apt install –g npm
 		npm install –g meteor
