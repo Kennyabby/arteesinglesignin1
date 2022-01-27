@@ -31,5 +31,7 @@
 		meteor run
 
 The –g implies a global execution. Installation is not section based.
-The folder arteesinglesignin was created in the directory /home/ubuntu/Artee/
-The meteor run command was executed after making a cd into directory /home/ubuntu/Artee/singlesignin/
+The folder arteesinglesignin was created in the directory
+	/home/ubuntu/Artee/
+The meteor run command was executed after making a cd into directory
+	/home/ubuntu/Artee/singlesignin/
