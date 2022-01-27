@@ -1,7 +1,9 @@
 # arteesinglesignin
 # Overview:
 	Spar Help Desk App is a general purpose, user limited, Meteor (React) web app, built with Meteor 2.5.3.
-Spar Help Desk App allows Staffs under the authority of the Artee Group Ltd, to access (use) a variety of Spar Appsheet through a Click, which would have been, until now, only possible by first getting permission from the appsheet developer, who would then provide a use-only link to staff’s email address to access the appsheet.
+	Spar Help Desk App allows Staffs under the authority of the Artee Group Ltd, to access (use) a variety of Spar Appsheet through
+	a Click, which would have been, until now, only possible by first getting permission from the appsheet developer, who would
+	then provide a use-only link to staff’s email address to access the appsheet.
 
 # Features:
 	Fully Responsive
