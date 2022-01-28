@@ -39,18 +39,18 @@
 	After creating the arteesinglesignin folder, 6 folders are automatically created:
 	•	.meteor: This folder contains all libraries such as React library, and dependencies that comes with installing meteor.
 
-	•	.git: This folder was created alongside “.meteor” folder during meteor installation, it contains everything needed to 			run git commands successfully.
+	•	.git: This folder was created alongside “.meteor” folder during meteor installation, it contains everything needed to run git commands successfully.
 
-	•	Client: As the name implies, this folder is meant for the client only. It by default contains main.css, main.html, 		main.jsx files, but presently contains an additional app.css file.
+	•	Client: As the name implies, this folder is meant for the client only. It by default contains main.css, main.html, main.jsx files, but presently contains an additional app.css file.
 
-	•	Imports: Two folders, “ui” and “api” are present in this folder. The “ui” folder by default contains only App.jsx file, 		Hello.jsx, Info.jsx but presently contains, App.jsx, LinkPage.jsx, LoginPage.jsx, AddForm.jsx. These files contain 		react codes that are used to create the website’s user interface. The “api” folder contains by default links.js 			file, but presently contain links.js and userLogin.js files. The “api” folder contains files with api’s of other  		packages like mongodb.
-
-
-	•	Server: This folder contains by default main.js file. Main.js file is the server side file that only contains server 			code.
-
-	•	Tests: This folder also contains by default a file called main.js. This file can contain both server code and client 			code.
+	•	Imports: Two folders, “ui” and “api” are present in this folder. The “ui” folder by default contains only App.jsx file, Hello.jsx, Info.jsx but presently contains, App.jsx, LinkPage.jsx, LoginPage.jsx, AddForm.jsx. These files contain react codes that are used to create the website’s user interface. The “api” folder contains by default links.js file, but presently contain links.js and userLogin.js files. The “api” folder contains files with api’s of other packages like mongodb.
 
 
-	•	Public: This folder is not part of the automatically generated folders after installing meteor. But it’s presence is 			important. Any file such as documents, images, etc… that is to be used in the construction of the user interface is 			placed here.
+	•	Server: This folder contains by default main.js file. Main.js file is the server side file that only contains server code.
+
+	•	Tests: This folder also contains by default a file called main.js. This file can contain both server code and client code.
+
+
+	•	Public: This folder is not part of the automatically generated folders after installing meteor. But it’s presence is important. Any file such as documents, images, etc… that is to be used in the construction of the user interface is placed here.
 
 	
