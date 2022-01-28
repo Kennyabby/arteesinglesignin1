@@ -49,7 +49,6 @@
 
 	•	Tests: This folder also contains by default a file called main.js. This file can contain both server code and client code.
 
-
 	•	Public: This folder is not part of the automatically generated folders after installing meteor. But it’s presence is important. Any file such as documents, images, etc… that is to be used in the construction of the user interface is placed here.
 
 	
