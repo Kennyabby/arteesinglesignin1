@@ -45,7 +45,6 @@
 
 	•	Imports: Two folders, “ui” and “api” are present in this folder. The “ui” folder by default contains only App.jsx file, Hello.jsx, Info.jsx but presently contains, App.jsx, LinkPage.jsx, LoginPage.jsx, AddForm.jsx. These files contain react codes that are used to create the website’s user interface. The “api” folder contains by default links.js file, but presently contain links.js and userLogin.js files. The “api” folder contains files with api’s of other packages like mongodb.
 
-
 	•	Server: This folder contains by default main.js file. Main.js file is the server side file that only contains server code.
 
 	•	Tests: This folder also contains by default a file called main.js. This file can contain both server code and client code.
